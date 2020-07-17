@@ -7,7 +7,7 @@ package clases;
 
 /**
  *
- * @author Sistema
+ * @author Sistema prueb cambio
  */
 public class clsFabricante {
     private String idFabricante;
