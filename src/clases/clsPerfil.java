@@ -13,9 +13,6 @@ public class clsPerfil {
     
     private String tipoPerfil;
     private String descripcion;
-
-    public clsPerfil() {
-    }
     
     public void generarPerfil(){
     }

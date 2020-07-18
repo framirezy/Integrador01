@@ -7,7 +7,7 @@ package clases;
 
 /**
  *
- * @author Sistema prueb cambio
+ * @author Sistema
  */
 public class clsFabricante {
     private String idFabricante;
@@ -21,6 +21,38 @@ public class clsFabricante {
     
     public void mostrarFabricante(){
     
+    }
+
+    public String getIdFabricante() {
+        return idFabricante;
+    }
+
+    public void setIdFabricante(String idFabricante) {
+        this.idFabricante = idFabricante;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
     
 }

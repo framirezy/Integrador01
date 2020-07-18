@@ -15,12 +15,44 @@ public class clsDistribuidor {
     private clsDocumento documento;
     private clsFabricante fabricante;
     
-    public void registrarDistribuidor(){
-        
+    public void registrarDistribuidor(clsFabricante objFabricante){
+        this.fabricante = objFabricante;
     }
         
     public void actualizarProveedor(){
         
     }
-    
+
+    public String getIdDistribuidor() {
+        return idDistribuidor;
+    }
+
+    public void setIdDistribuidor(String idDistribuidor) {
+        this.idDistribuidor = idDistribuidor;
+    }
+
+    public String getNombreDistribuidor() {
+        return nombreDistribuidor;
+    }
+
+    public void setNombreDistribuidor(String nombreDistribuidor) {
+        this.nombreDistribuidor = nombreDistribuidor;
+    }
+
+    public clsDocumento getDocumento() {
+        return documento;
+    }
+
+    public void setDocumento(clsDocumento documento) {
+        this.documento = documento;
+    }
+
+    public clsFabricante getFabricante() {
+        return fabricante;
+    }
+
+    public void setFabricante(clsFabricante fabricante) {
+        this.fabricante = fabricante;
+    }
+        
 }

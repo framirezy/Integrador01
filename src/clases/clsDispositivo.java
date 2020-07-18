@@ -23,22 +23,68 @@ public class clsDispositivo {
         
     }
     
-    public void agregarDistribuidor(){
-        
+    public void agregarDistribuidor(clsDistribuidor objDistribuidor){
+        this.distribuidor = objDistribuidor;
     }
     
     public void registrarProveedor(){
     
     }
     
-    public boolean validarModelo(){
-        
+    public boolean validarModelo(){        
         return true;
     }
     
-    public int capacidadFisica(){
-    
+    public int capacidadFisica(){    
         return 0;
     }
-    
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public String getNumeroSerie() {
+        return numeroSerie;
+    }
+
+    public void setNumeroSerie(String numeroSerie) {
+        this.numeroSerie = numeroSerie;
+    }
+
+    public int getPuertos() {
+        return puertos;
+    }
+
+    public void setPuertos(int puertos) {
+        this.puertos = puertos;
+    }
+
+    public int getVoltaje() {
+        return voltaje;
+    }
+
+    public void setVoltaje(int voltaje) {
+        this.voltaje = voltaje;
+    }
+
+    public int getVelocidad() {
+        return velocidad;
+    }
+
+    public void setVelocidad(int velocidad) {
+        this.velocidad = velocidad;
+    }
+
+    public String getTecnologia() {
+        return tecnologia;
+    }
+
+    public void setTecnologia(String tecnologia) {
+        this.tecnologia = tecnologia;
+    }
+        
 }
