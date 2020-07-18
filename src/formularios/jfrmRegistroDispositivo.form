@@ -23,10 +23,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="4" max="32767" attributes="0"/>
-          </Group>
+          <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -51,9 +48,10 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jPanel6" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -108,13 +106,13 @@
                                   <Component id="CiudadOrigen2" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="70" pref="70" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="txt_numserie" alignment="0" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txt_numserie" alignment="0" pref="210" max="32767" attributes="0"/>
                                   <Component id="txt_marca" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="cb_pais" alignment="0" pref="210" max="32767" attributes="0"/>
                                   <Component id="txt_fabricante" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txt_id_fabricante" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txt_paisfabricante" alignment="1" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -137,7 +135,7 @@
                                       </Group>
                                   </Group>
                                   <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                                       <Component id="txt_distribuidor" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -152,7 +150,7 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="RUC2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                               <Component id="txt_idmarca" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -190,8 +188,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="cb_pais" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txt_paisfabricante" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -240,6 +238,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_distribuidor">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_distribuidorActionPerformed"/>
               </Events>
@@ -249,34 +250,6 @@
                 <Property name="text" type="java.lang.String" value="Fabricante"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cb_pais">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="cc" red="cc" type="rgb"/>
-                </Property>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="11">
-                    <StringItem index="0" value="Argentina"/>
-                    <StringItem index="1" value="Bolivia"/>
-                    <StringItem index="2" value="Brasil"/>
-                    <StringItem index="3" value="Chile"/>
-                    <StringItem index="4" value="Colombia"/>
-                    <StringItem index="5" value="Ecuador"/>
-                    <StringItem index="6" value="Paraguay"/>
-                    <StringItem index="7" value="Peru"/>
-                    <StringItem index="8" value="Uruguay"/>
-                    <StringItem index="9" value="Venezuela"/>
-                    <StringItem index="10" value=" "/>
-                  </StringArray>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cb_paisActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
-            </Component>
             <Component class="javax.swing.JLabel" name="RUC1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cliente"/>
@@ -285,6 +258,7 @@
             <Component class="javax.swing.JTextField" name="txt_numserie">
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_numserieActionPerformed"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_numserieKeyTyped"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="RazonSocial1">
@@ -293,6 +267,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_marca">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_marcaActionPerformed"/>
               </Events>
@@ -303,8 +280,14 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_id_fabricante">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_iddistribuidor">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_iddistribuidorActionPerformed"/>
               </Events>
@@ -320,6 +303,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_fabricante">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_fabricanteActionPerformed"/>
               </Events>
@@ -335,6 +321,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_idmarca">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel20">
               <Properties>
@@ -342,6 +331,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_tecnologia">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_tecnologiaActionPerformed"/>
               </Events>
@@ -352,6 +344,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_idtecnologia">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_idtecnologiaActionPerformed"/>
               </Events>
@@ -374,6 +369,11 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_telefono">
+            </Component>
+            <Component class="javax.swing.JTextField" name="txt_paisfabricante">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>

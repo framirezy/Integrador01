@@ -5,18 +5,27 @@
  */
 package formularios;
 
+import clases.clsDispositivo;
+import clases.clsVariablesGlobales;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author Sistema
  */
 public class jfrmSeleciondeDispositivo extends javax.swing.JDialog {
 
+    DefaultListModel modelo; 
     /**
      * Creates new form jfrmRegistroDispositivo
      */
     public jfrmSeleciondeDispositivo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        list_numserie.setModel(modelo);
+        for(clsDispositivo Dispositivo:clsVariablesGlobales.listaDispositivo){
+            modelo.addElement(Dispositivo.getNumeroSerie());                    
+        }
     }
 
     /**

@@ -5,18 +5,44 @@
  */
 package formularios;
 
+import clases.clsDistribuidor;
+import clases.clsFabricante;
+import clases.clsVariablesGlobales;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Sistema
  */
 public class jfrmRegistroDispositivo extends javax.swing.JDialog {
-
+    
     /**
      * Creates new form jfrmRegistroDispositivo
      */
     public jfrmRegistroDispositivo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        txt_numserie.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                if (txt_numserie.getText().length() == 12) {
+                    e.consume();
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent ke) {
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void keyReleased(KeyEvent ke) {
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
+
     }
 
     /**
@@ -33,7 +59,6 @@ public class jfrmRegistroDispositivo extends javax.swing.JDialog {
         jLabel15 = new javax.swing.JLabel();
         txt_distribuidor = new javax.swing.JTextField();
         CiudadOrigen1 = new javax.swing.JLabel();
-        cb_pais = new javax.swing.JComboBox<>();
         RUC1 = new javax.swing.JLabel();
         txt_numserie = new javax.swing.JTextField();
         RazonSocial1 = new javax.swing.JLabel();
@@ -56,6 +81,7 @@ public class jfrmRegistroDispositivo extends javax.swing.JDialog {
         txt_direccion = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         txt_telefono = new javax.swing.JTextField();
+        txt_paisfabricante = new javax.swing.JTextField();
         btn_continuar1 = new javax.swing.JButton();
         btn_cancelar2 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
@@ -68,6 +94,7 @@ public class jfrmRegistroDispositivo extends javax.swing.JDialog {
 
         jLabel15.setText("Pais Fabricante");
 
+        txt_distribuidor.setEditable(false);
         txt_distribuidor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_distribuidorActionPerformed(evt);
@@ -76,14 +103,6 @@ public class jfrmRegistroDispositivo extends javax.swing.JDialog {
 
         CiudadOrigen1.setText("Fabricante");
 
-        cb_pais.setBackground(new java.awt.Color(204, 204, 255));
-        cb_pais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Argentina", "Bolivia", "Brasil", "Chile", "Colombia", "Ecuador", "Paraguay", "Peru", "Uruguay", "Venezuela", " " }));
-        cb_pais.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cb_paisActionPerformed(evt);
-            }
-        });
-
         RUC1.setText("Cliente");
 
         txt_numserie.addActionListener(new java.awt.event.ActionListener() {
@@ -91,9 +110,15 @@ public class jfrmRegistroDispositivo extends javax.swing.JDialog {
                 txt_numserieActionPerformed(evt);
             }
         });
+        txt_numserie.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_numserieKeyTyped(evt);
+            }
+        });
 
         RazonSocial1.setText("Id Tecnologia");
 
+        txt_marca.setEditable(false);
         txt_marca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_marcaActionPerformed(evt);
@@ -102,6 +127,9 @@ public class jfrmRegistroDispositivo extends javax.swing.JDialog {
 
         jLabel16.setText("Distribuidor");
 
+        txt_id_fabricante.setEditable(false);
+
+        txt_iddistribuidor.setEditable(false);
         txt_iddistribuidor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_iddistribuidorActionPerformed(evt);
@@ -112,6 +140,7 @@ public class jfrmRegistroDispositivo extends javax.swing.JDialog {
 
         RUC2.setText("Id Marca");
 
+        txt_fabricante.setEditable(false);
         txt_fabricante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_fabricanteActionPerformed(evt);
@@ -122,8 +151,11 @@ public class jfrmRegistroDispositivo extends javax.swing.JDialog {
 
         jLabel19.setText("Id Distribuidor");
 
+        txt_idmarca.setEditable(false);
+
         jLabel20.setText("Numero de Serie");
 
+        txt_tecnologia.setEditable(false);
         txt_tecnologia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_tecnologiaActionPerformed(evt);
@@ -132,6 +164,7 @@ public class jfrmRegistroDispositivo extends javax.swing.JDialog {
 
         jLabel22.setText("Tecnologia");
 
+        txt_idtecnologia.setEditable(false);
         txt_idtecnologia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_idtecnologiaActionPerformed(evt);
@@ -148,6 +181,8 @@ public class jfrmRegistroDispositivo extends javax.swing.JDialog {
 
         jLabel2.setText("Telefono");
 
+        txt_paisfabricante.setEditable(false);
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -162,13 +197,13 @@ public class jfrmRegistroDispositivo extends javax.swing.JDialog {
                             .addComponent(CiudadOrigen1)
                             .addComponent(CiudadOrigen2)
                             .addComponent(jLabel15))
-                        .addGap(70, 70, 70)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txt_numserie, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_marca)
-                            .addComponent(cb_pais, javax.swing.GroupLayout.Alignment.LEADING, 0, 210, Short.MAX_VALUE)
-                            .addComponent(txt_fabricante, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_id_fabricante, javax.swing.GroupLayout.Alignment.LEADING)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_numserie, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                            .addComponent(txt_marca, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txt_fabricante)
+                            .addComponent(txt_id_fabricante)
+                            .addComponent(txt_paisfabricante, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel16)
@@ -186,7 +221,7 @@ public class jfrmRegistroDispositivo extends javax.swing.JDialog {
                                     .addComponent(txt_iddistribuidor, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txt_tecnologia, javax.swing.GroupLayout.Alignment.TRAILING)))
                             .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addGap(82, 82, 82)
+                                .addGap(16, 16, 16)
                                 .addComponent(txt_distribuidor))))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,7 +231,7 @@ public class jfrmRegistroDispositivo extends javax.swing.JDialog {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(RUC2)
-                        .addGap(107, 107, 107)
+                        .addGap(41, 41, 41)
                         .addComponent(txt_idmarca)))
                 .addContainerGap())
         );
@@ -225,8 +260,8 @@ public class jfrmRegistroDispositivo extends javax.swing.JDialog {
                     .addComponent(txt_id_fabricante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cb_pais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15))
+                    .addComponent(jLabel15)
+                    .addComponent(txt_paisfabricante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
@@ -280,9 +315,10 @@ public class jfrmRegistroDispositivo extends javax.swing.JDialog {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel12)
                             .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -310,9 +346,7 @@ public class jfrmRegistroDispositivo extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 4, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -328,7 +362,23 @@ public class jfrmRegistroDispositivo extends javax.swing.JDialog {
     private void btn_continuar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_continuar1ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-
+        
+        clsFabricante objFabricante = new clsFabricante();
+        objFabricante.setIdFabricante(txt_id_fabricante.getText());
+        objFabricante.setNombre(txt_fabricante.getText());
+        objFabricante.setPais(txt_paisfabricante.getText());
+                
+        clsDistribuidor objDistribuidor = new clsDistribuidor();
+        objDistribuidor.setIdDistribuidor(txt_iddistribuidor.getText());
+        objDistribuidor.setNombreDistribuidor(txt_distribuidor.getText());
+        objDistribuidor.registrarDistribuidor(objFabricante);
+        
+        clsVariablesGlobales.globalDispositivo.setMarca(txt_marca.getText());
+        clsVariablesGlobales.globalDispositivo.setNumeroSerie(txt_numserie.getText());
+        clsVariablesGlobales.globalDispositivo.setTecnologia(txt_tecnologia.getText());
+        clsVariablesGlobales.globalDispositivo.agregarDistribuidor(objDistribuidor);
+        jfrmSeleciondeDispositivo frm = new jfrmSeleciondeDispositivo(null,true);
+        frm.setVisible(true);
     }//GEN-LAST:event_btn_continuar1ActionPerformed
 
     private void btn_cancelar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelar2ActionPerformed
@@ -357,11 +407,8 @@ public class jfrmRegistroDispositivo extends javax.swing.JDialog {
 
     private void txt_numserieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_numserieActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_txt_numserieActionPerformed
-
-    private void cb_paisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_paisActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cb_paisActionPerformed
 
     private void txt_distribuidorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_distribuidorActionPerformed
         // TODO add your handling code here:
@@ -370,6 +417,40 @@ public class jfrmRegistroDispositivo extends javax.swing.JDialog {
     private void txt_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_clienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_clienteActionPerformed
+
+    private void txt_numserieKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_numserieKeyTyped
+        // TODO add your handling code here:
+        char caracter = evt.getKeyChar();
+        System.out.println(caracter);
+        if (caracter == ('\n')) {
+            if(txt_numserie.getText().length()<12){
+                JOptionPane.showMessageDialog(null, "numero de serie debe tener 12 digitos");
+            }
+            else{
+                int pos = -1;                
+                for(int i=0;i<5;i++){
+                    if(txt_numserie.getText().substring(0,6).equals(clsVariablesGlobales.datos[i][0])){
+                        pos = i;
+                        break;
+                    }
+                        
+                }
+                if(pos==-1)
+                    JOptionPane.showMessageDialog(null, "numero de serie incorrecto");
+                else{
+                    txt_marca.setText(clsVariablesGlobales.datos[pos][1]);
+                    txt_idmarca.setText(clsVariablesGlobales.datos[pos][2]);
+                    txt_fabricante.setText(clsVariablesGlobales.datos[pos][3]);
+                    txt_id_fabricante.setText(clsVariablesGlobales.datos[pos][4]);
+                    txt_paisfabricante.setText(clsVariablesGlobales.datos[pos][5]);
+                    txt_distribuidor.setText(clsVariablesGlobales.datos[pos][6]);
+                    txt_iddistribuidor.setText(clsVariablesGlobales.datos[pos][7]);
+                    txt_tecnologia.setText(clsVariablesGlobales.datos[pos][8]);
+                    txt_idtecnologia.setText(clsVariablesGlobales.datos[pos][9]);
+                }                    
+            }
+        }
+    }//GEN-LAST:event_txt_numserieKeyTyped
 
     /**
      * @param args the command line arguments
@@ -421,7 +502,6 @@ public class jfrmRegistroDispositivo extends javax.swing.JDialog {
     private javax.swing.JLabel RazonSocial1;
     private javax.swing.JButton btn_cancelar2;
     private javax.swing.JButton btn_continuar1;
-    private javax.swing.JComboBox<String> cb_pais;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel15;
@@ -443,6 +523,7 @@ public class jfrmRegistroDispositivo extends javax.swing.JDialog {
     private javax.swing.JTextField txt_idtecnologia;
     private javax.swing.JTextField txt_marca;
     private javax.swing.JTextField txt_numserie;
+    private javax.swing.JTextField txt_paisfabricante;
     private javax.swing.JTextField txt_tecnologia;
     private javax.swing.JTextField txt_telefono;
     // End of variables declaration//GEN-END:variables
